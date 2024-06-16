@@ -1,0 +1,46 @@
+
+@model List<WAChoferes.Models.DriverModel>
+
+@{
+    ViewData["Title"] = "Choferes";
+    int numero = 0; 
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2 class="Display-5">Lsitado de Choferes</h2>
+
+<a class="btn btn-primary" asp-action="DriversAdd" asp-controller="Drivers">Agregar Chofer</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nomnre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Licencia</th>
+            
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model){
+            {
+                numero++;
+            }
+            <tr>
+                <th scope="row">@numero</th>
+                <td>@item.Nombre</td>
+                <td>@item.Telefono</td>
+                <td>@item.NumLicencia</td>
+                
+                <td>
+                <a class="btn btn-success" asp-action="DriverShowAndEdit" asp-controller="Drivers" asp-route-id="@item.Id">Editar</a>
+
+                <a class="btn btn-dark" asp-action="DriverShowToDeleted" asp-controller="Drivers" asp-route-id="@item.Id">Borrar</a>
+            </td>
+            </tr>
+            
+        }
+
+    </tbody>
+</table>

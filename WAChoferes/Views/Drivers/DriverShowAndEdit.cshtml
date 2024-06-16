@@ -1,0 +1,32 @@
+@model WAChoferes.Models.DriverModel
+@using WAChoferes.Models
+
+
+
+@Html.DisplayForModel()
+
+@{
+    ViewData["Title"] = "Editar Chofer";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+
+<form asp-controller="Drivers" asp-action="DriverEdit">
+    <div class="mb-3">
+
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" asp-for="Nombre" placeholder="Escribir nombre del chofer">
+
+        <label asp-for="Telefono" class="form-label">Telefono</label>
+        <input type="text" class="form-control" asp-for="Telefono" placeholder="Ingresar Telefono del chofer">
+
+        <label asp-for="NumLicencia" class="form-label">Licencia</label>
+        <input type="text" class="form-control" asp-for="NumLicencia" placeholder="Ingresar numero de licencia">
+
+        
+        <br>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn btn-secundary" asp-action="DriversList" asp-controller="Drivers">Cancelar</a>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+@model List<WAChoferes.Models.AutosModel>
+
+@{
+    ViewData["Title"] = "Autos";
+    int numero = 0; 
+}
+
+
+<h2 class="Display-5">Lsitado de Autos</h2>
+
+<a class="btn btn-primary" asp-action="AutosAdd" asp-controller="Autos">Agregar Autos</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Año</th>
+            <th scope="col">Placa</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var autos in Model){
+            {
+                numero++;
+            }
+            <tr>
+                <th scope="row">@numero</th>
+                <td>@autos.modelo</td>
+                <td>@autos.año</td>
+                <td>@autos.placa</td>
+                
+                <td>
+                <a class="btn btn-success" asp-action="AutosShowAndEdit" asp-controller="Autos" asp-route-id="@autos.Id">Editar</a>
+
+                <a class="btn btn-dark" asp-action="AutosShowToDeleted" asp-controller="Autos" asp-route-id="@autos.Id">Borrar</a>
+            </td>
+            </tr>
+            
+        }
+
+    </tbody>
+</table>

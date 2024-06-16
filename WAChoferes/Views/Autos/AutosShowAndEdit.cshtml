@@ -1,0 +1,28 @@
+@model WAChoferes.Models.AutosModel
+@using WAChoferes.Models
+
+@Html.DisplayForModel()
+
+@{
+    ViewData["Title"] = "Editar Auto:";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="AutosEdit" asp-controller="Autos" method="post">
+    <div class="mb-3">
+        <label asp-for="modelo" class="form-label">Modelo</label>
+        <input type="text" asp-for="modelo" class="form-control">
+
+        <label asp-for="año" class="form-label">Año</label>
+        <input type="text" asp-for="año" class="form-control">
+
+         <label asp-for="placa" class="form-label">Placa</label>
+        <input type="text" asp-for="placa" class="form-control">
+
+        <br>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn btn-secundary" asp-action="AutosList" asp-controller="Autos">Cancelar</a>
+       
+    </div>
+
+</form>
